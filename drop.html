@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <pre>
+$desktopPath = [Environment]::GetFolderPath("Desktop")
+$filePath = Join-Path $desktopPath "meinedatei.txt"
+
+"hi" | Out-File -FilePath $filePath -Encoding UTF8
+
+Write-Host "Datei wurde erstellt: $filePath"
+    </pre>
+</body>
+</html>
